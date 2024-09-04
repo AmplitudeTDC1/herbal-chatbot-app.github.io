@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const firstName = sessionStorage.getItem("firstName");
   if (firstName) {
     const greetingElement = document.getElementById("greeting");
-    greetingElement.textContent = `Hello there, ${firstName}!`;
+    greetingElement.textContent = `Hi there, ${firstName}!`;
   }
 });
 
@@ -166,7 +166,7 @@ const displayCustomMessage = (message) => {
 const displayCategories = () => {
   chatboxMessages.innerHTML = ""; // Clear the chatbox
   displayDate(); // Display the current date
-  displayCustomMessage("Hi there! I'm the Kampala Homemade Virtual Assistant.");
+  displayCustomMessage("Hi there! I'm the Bush Doktor Virtual Assistant.");
   displayCustomMessage(
     "For additional help, please log in to your account to chat further"
   );
