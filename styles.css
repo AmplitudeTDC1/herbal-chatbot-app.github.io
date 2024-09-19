@@ -1,279 +1,301 @@
 /* Import Google font - Poppins */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+/* Base Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
 }
+
 body {
-  background: #e3f2fd;
-  position: relative; /* Ensure body is positioned relative to position fixed elements */
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(45deg, #e96443, #904e95);
+  color: #fff;
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  transition: all 0.3s ease;
 }
+
+/* Main container for the therapy information */
+.container {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 50px;
+  max-width: 1200px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+.text-content {
+  flex: 1;
+  padding-right: 20px;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+/* Add CSS for highlighted subcategories */
+.highlight {
+  font-size: 1.5rem;
+  background-color: #ffeb3b; /* Light yellow background */
+  font-weight: bold; /* Make the text bold */
+  border: 2px solid #fbc02d; /* Add a yellow border */
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.header-card {
+  font-weight: bold;
+  font-size: 1.2em;
+  text-align: center;
+  /* Add glassmorphism effect */
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 15px;
+  margin: 10px 0;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* .highlight {
+    color: #ff6347; 
+  } */
+
+.btn {
+  background-color: #ff416c;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  margin-top: 20px;
+  display: block;
+  text-align: left;
+}
+
+.btn:hover {
+  background-color: #ff4b2b;
+}
+
+.image-content {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.image-content img {
+  max-width: 500px;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Category and Question Cards with Glassmorphism */
+.category-card,
+.question-card {
+  background: rgba(255, 255, 255, 0.1); /* Transparent white */
+  backdrop-filter: blur(15px); /* Blurring */
+  -webkit-backdrop-filter: blur(15px);
+  color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.18); /* Transparent border */
+}
+
+/* Category Card Styling */
+.category-card:hover,
+.question-card:hover {
+  background: rgba(255, 255, 255, 0.2); /* Slightly more opaque on hover */
+}
+
+/* Answer Box */
+.answer-div {
+  background: rgba(255, 255, 255, 0.05); /* Slight transparency */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  text-align: left;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Chatbot Toggler */
 .chatbot-toggler {
   position: fixed;
   bottom: 30px;
-  right: 35px;
-  outline: none;
-  border: none;
-  height: 50px;
-  width: 50px;
-  display: flex;
+  right: 30px;
   cursor: pointer;
-  align-items: center;
-  justify-content: center;
+  z-index: 10;
+  border: 2px solid white; /* Added border */
   border-radius: 50%;
-  background: #724ae8;
-  transition: all 0.2s ease;
-  z-index: 6000; /* Ensure the toggler is on top of other elements */
-}
-body.show-chatbot .chatbot-toggler {
-  transform: rotate(90deg);
-}
-.chatbot-toggler span {
-  color: #fff;
-  position: absolute;
-}
-body.show-chatbot .chatbot-toggler span:last-child,
-body.show-chatbot .chatbot-toggler span:first-child {
-  opacity: 0;
-}
-body.show-chatbot .chatbot-toggler span:last-child {
-  opacity: 1;
-}
-/* Add this line to initially hide the 'Close' text */
-.chatbot-toggler span:last-child {
-  opacity: 0;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px); /* Subtle blurring */
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37); /* Soft shadow for depth */
 }
 
-/* Ensure 'Close' text is visible and 'Chat' text is hidden when the chatbot is active */
-body.show-chatbot .chatbot-toggler span:last-child {
-  opacity: 1;
+/* Responsive design for the therapy container */
+@media only screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 30px;
+  }
+
+  .text-content {
+    padding-right: 0;
+    margin-bottom: 30px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+
+  .image-content img {
+    max-width: 100%;
+  }
 }
 
-body.show-chatbot .chatbot-toggler span:first-child {
-  opacity: 0;
-}
-
-.chatbot {
+/* Chatbot toggler */
+.chatbot-toggler {
   position: fixed;
-  right: 35px;
-  bottom: 90px;
-  width: 420px;
-  background: #fff;
-  border-radius: 15px;
-  overflow: hidden;
-  opacity: 0;
-  pointer-events: none;
-  transform: scale(0.5);
-  transform-origin: bottom right;
-  box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
-    0 32px 64px -48px rgba(0, 0, 0, 0.5);
-  transition: all 0.1s ease;
-  z-index: 3000; /* Ensure the chatbot is on top of other elements */
-}
-body.show-chatbot .chatbot {
-  opacity: 1;
-  pointer-events: auto;
-  transform: scale(1);
-}
-.chatbot header {
-  padding: 16px 0;
-  position: relative;
-  text-align: center;
-  color: #fff;
-  background: #724ae8;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  z-index: 5000;
-}
-.chatbot header span {
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  display: none;
+  bottom: 30px;
+  right: 30px;
   cursor: pointer;
-  transform: translateY(-50%);
-}
-.chat-area {
-  flex: 1;
-  overflow-y: auto;
-}
-header h1 h2 {
-  font-size: 1.5rem;
-}
-.chatbot .chatbox {
-  overflow-y: auto;
-  height: 450px;
-  padding: 30px 20px 100px;
-}
-.chatbot :where(.chatbox, textarea)::-webkit-scrollbar {
-  width: 6px;
-}
-.chatbot :where(.chatbox, textarea)::-webkit-scrollbar-track {
-  background: #fff;
-  border-radius: 25px;
-}
-.chatbot :where(.chatbox, textarea)::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 25px;
-}
-.chatbox .chat {
-  display: flex;
-  list-style: none;
-}
-.chatbox .outgoing {
-  margin: 20px 0;
-  justify-content: flex-end;
-}
-.chatbox .incoming span {
-  width: 32px;
-  height: 32px;
-  color: #fff;
-  cursor: default;
-  text-align: center;
-  line-height: 32px;
-  align-self: flex-end;
-  background: #724ae8;
-  border-radius: 4px;
-  margin: 0 10px 7px 0;
-}
-.chatbox .chat p {
-  white-space: pre-wrap;
-  padding: 12px 16px;
-  border-radius: 10px 10px 0 10px;
-  max-width: 75%;
-  color: #fff;
-  font-size: 1.5rem;
-  background: #724ae8;
-}
-.chatbox .incoming p {
-  border-radius: 10px 10px 10px 0;
-}
-.chatbox .chat p.error {
-  color: #721c24;
-  background: #f8d7da;
-}
-.chatbox .incoming p {
-  color: #000;
-  background: #f2f2f2;
-}
-.chatbot .chat-input {
-  display: flex;
-  gap: 5px;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background: #fff;
-  padding: 3px 20px;
-  border-top: 1px solid #ddd;
-  font-size: 1em;
-}
-.chat-input textarea {
-  height: 25px;
-  width: 100%;
-  border: none;
-  outline: none;
-  resize: none;
-  max-height: 180px;
-  padding: 5px 5px 15px 0;
-  font-size: 1.5rem;
-}
-.chat-input span {
-  align-self: flex-end;
-  color: #724ae8;
-  cursor: pointer;
-  height: 5px;
-  display: flex;
-  align-items: center;
-  visibility: hidden;
-  font-size: 1.5rem;
-}
-.chat-input textarea:valid ~ span {
-  visibility: visible;
-}
-@media (max-width: 490px) {
-  .chatbot-toggler {
-    right: 20px;
-    bottom: 20px;
-  }
-  .chatbot {
-    right: 0;
-    bottom: 0;
-    height: 80%;
-    border-radius: 0;
-    width: 70%;
-  }
-  .chatbot .chatbox {
-    height: 220px;
-    padding: 15px 15px;
-  }
-  .chat-input.back-button {
-    padding: 3px;
-    margin-left: 0;
-    margin-bottom: 10px;
-  }
-  .chatbot .chat-input {
-    padding: 15px 5px;
-  }
-  .chatbot header span {
-    display: block;
-    padding: 25px 15px;
-  }
-  header span.material-symbols-outlined {
-    display: none;
-  }
-  header h1 {
-    font-size: 3rem;
-  }
-  .chat-input.back-button {
-    padding: 3px;
-    margin-left: 3px;
-  }
-  .chat-input textarea {
-    height: 55px;
-    width: 100%;
-    border: none;
-    outline: none;
-    resize: none;
-    max-height: 50px;
-    padding: 5px 5px 15px 0;
-    font-size: 1.5rem;
-  }
+  z-index: 10;
 }
 
-.category-card {
-  border: 1px solid #724ae8;
-  border-radius: 8px;
-  padding: 10px;
-  margin: 5px 0;
-  cursor: pointer;
-  text-align: center;
-  background: #f0f0f0;
-}
-
-.question-card {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 10px;
-  margin: 5px 0;
-  cursor: pointer;
-  text-align: left;
-  background: #f9f9f9;
-}
-
-.back-button {
-  display: flex;
-  justify-content: center;
-  margin: 10px 0;
-}
-
-.back-button button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  background-color: #724ae8;
+.chatbot-toggler span {
+  font-size: 48px;
   color: white;
+}
+
+.chatbot-toggler span:first-child {
+  display: inline-block;
+}
+
+.chatbot-toggler span:last-child {
+  display: none;
+}
+
+/* Chatbot box */
+/* Chatbot Box with Glassmorphism */
+.chatbot {
+  display: none;
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  background: rgba(255, 255, 255, 0.1); /* Transparent white background */
+  backdrop-filter: blur(25px); /* Blurring effect */
+  -webkit-backdrop-filter: blur(15px); /* For Safari */
+  color: #000;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37); /* Soft shadow for depth */
+  border: 1px solid rgba(255, 255, 255, 0.18); /* Transparent border */
+  width: 300px;
+  z-index: 100;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Show chatbot when toggled */
+.show-chatbot .chatbot {
+  display: block;
+}
+
+/* Show close icon when chatbot is open */
+.show-chatbot .chatbot-toggler span:first-child {
+  display: none;
+}
+
+.show-chatbot .chatbot-toggler span:last-child {
+  display: inline-block;
+}
+
+/* Chatbot Header */
+.chatbot header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2); /* Slight transparency for header */
+  backdrop-filter: blur(10px); /* Blurring effect */
+  -webkit-backdrop-filter: blur(10px);
+  padding: 10px;
+  color: white;
+  border-radius: 15px 15px 0 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18); /* Subtle border */
+}
+
+/* Chatbox (message area) */
+.chatbox {
+  list-style: none;
+  padding: 20px;
+  height: 200px;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.05); /* Slight background for contrast */
+  backdrop-filter: blur(10px); /* Soft blurring */
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.chat-input {
+  padding: 10px;
+  text-align: center;
+}
+
+/* Button Glassmorphism */
+.back-button button {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px); /* Blurring */
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18); /* Transparent border */
+  color: white;
+  padding: 10px;
+  font-size: 1rem;
   cursor: pointer;
-  font-size: 1.5rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.back-button button:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* More opacity on hover */
 }
