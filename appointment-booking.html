@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doctor's Appointment Booking Form</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <style>
+      /* Custom media queries for responsiveness */
+      @media (max-width: 600px) {
+        body {
+          font-size: 14px;
+        }
+        h2 {
+          font-size: 1.8rem;
+        }
+        .container {
+          padding: 0 15px;
+        }
+        .input-field label {
+          font-size: 0.9rem;
+        }
+        .input-field input,
+        .input-field select,
+        .input-field textarea {
+          font-size: 0.9rem;
+        }
+      }
+      @media (min-width: 601px) and (max-width: 992px) {
+        body {
+          font-size: 16px;
+        }
+        h2 {
+          font-size: 2.5rem;
+        }
+      }
+      @media (min-width: 993px) {
+        body {
+          font-size: 18px;
+        }
+        h2 {
+          font-size: 3rem;
+        }
+      }
+      .input-field input,
+      .input-field select,
+      .input-field textarea {
+        width: 100%;
+      }
+      .row {
+        margin-bottom: 20px;
+      }
+      .btn {
+        width: 100%;
+      }
+      @media (min-width: 993px) {
+        .container {
+          width: 60%;
+        }
+      }
+      .toast {
+        font-size: 1rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>Doctor's Appointment Booking Form</h2>
+      <form id="bookingForm">
+        <div class="row">
+          <div class="input-field col s12 m6">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="fullName" type="text" class="validate" required />
+            <label for="fullName">Patient Full Name</label>
+            <span
+              class="helper-text"
+              data-error="Name is required"
+              data-success="Valid"
+            ></span>
+          </div>
+          <div class="input-field col s12 m6">
+            <i class="material-icons prefix">person</i>
+            <select id="ageRange" required>
+              <option value="" disabled selected>Choose Age Range</option>
+              <option value="0-17">0-17</option>
+              <option value="18-24">18-24</option>
+              <option value="25-34">25-34</option>
+              <option value="35-44">35-44</option>
+              <option value="45-54">45-54</option>
+              <option value="55-64">55-64</option>
+              <option value="65-74">65-74</option>
+              <option value="75+">75+</option>
+            </select>
+            <label for="ageRange">Age Range</label>
+            <span
+              class="helper-text"
+              data-error="Please select an age range"
+              data-success="Valid"
+            ></span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12 m6">
+            <i class="material-icons prefix">people</i>
+            <select id="gender" required>
+              <option value="" disabled selected>Choose Gender</option>
+              <option value="Female">Female</option>
+              <option value="Male">Male</option>
+            </select>
+            <label for="gender">Gender</label>
+            <span
+              class="helper-text"
+              data-error="Please select gender"
+              data-success="Valid"
+            ></span>
+          </div>
+          <div class="input-field col s12 m6">
+            <i class="material-icons prefix">phone</i>
+            <input
+              id="phoneContact"
+              type="tel"
+              class="validate"
+              required
+              pattern="[0-9]{10}"
+            />
+            <label for="phoneContact">Phone</label>
+            <span
+              class="helper-text"
+              data-error="Please enter a valid 10-digit phone number"
+              data-success="Valid"
+            ></span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12 m6">
+            <i class="material-icons prefix">email</i>
+            <input id="email" type="email" class="validate" required />
+            <label for="email">Email</label>
+            <span
+              class="helper-text"
+              data-error="Invalid email format"
+              data-success="Valid"
+            ></span>
+          </div>
+          <div class="input-field col s12 m6">
+            <i class="material-icons prefix">place</i>
+            <select id="location" required>
+              <option value="" disabled selected>Select Your Location</option>
+              <!-- <option value="" disabled selected></option> -->
+              <option value="International">International</option>
+              <option value="Abia">Abia</option>
+              <option value="Adamawa">Adamawa</option>
+              <option value="Akwa Ibom">Akwa Ibom</option>
+              <option value="Anambra">Anambra</option>
+              <option value="Bauchi">Bauchi</option>
+              <option value="Bayelsa">Bayelsa</option>
+              <option value="Benue">Benue</option>
+              <option value="Borno">Borno</option>
+              <option value="Cross River">Cross River</option>
+              <option value="Delta">Delta</option>
+              <option value="Ebonyi">Ebonyi</option>
+              <option value="Edo">Edo</option>
+              <option value="Ekiti">Ekiti</option>
+              <option value="Enugu">Enugu</option>
+              <option value="Gombe">Gombe</option>
+              <option value="Imo">Imo</option>
+              <option value="Jigawa">Jigawa</option>
+              <option value="Kaduna">Kaduna</option>
+              <option value="Kano">Kano</option>
+              <option value="Katsina">Katsina</option>
+              <option value="Kebbi">Kebbi</option>
+              <option value="Kogi">Kogi</option>
+              <option value="Kwara">Kwara</option>
+              <option value="Lagos">Lagos</option>
+              <option value="Nasarawa">Nasarawa</option>
+              <option value="Niger">Niger</option>
+              <option value="Ogun">Ogun</option>
+              <option value="Ondo">Ondo</option>
+              <option value="Osun">Osun</option>
+              <option value="Oyo">Oyo</option>
+              <option value="Plateau">Plateau</option>
+              <option value="Rivers">Rivers</option>
+              <option value="Sokoto">Sokoto</option>
+              <option value="Taraba">Taraba</option>
+              <option value="Yobe">Yobe</option>
+              <option value="Zamfara">Zamfara</option>
+              <option value="FCT">FCT (Federal Capital Territory)</option>
+            </select>
+            <label for="location">Patient Location</label>
+            <span
+              class="helper-text"
+              data-error="Patient location is required"
+              data-success="Valid"
+            ></span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12 m6">
+            <i class="material-icons prefix">local_hospital</i>
+            <select id="Health Condition" required>
+              <option value="" disabled selected>
+                Select Patient Health Condition
+              </option>
+              <option value="High Blood Pressure">High Blood Pressure</option>
+              <option value="Diabetes">Diabetes</option>
+              <option value="Heart Condition">Heart Condition</option>
+              <option value="Asthma">Asthma</option>
+              <option value="Fibroid">Fibroid</option>
+              <option value="Obesity">Obesity</option>
+              <option value="Anxiety Disorders">Anxiety Disorders</option>
+              <option value="Depression">Depression</option>
+              <option value="Arthritis">Arthritis</option>
+              <option value="Stroke">Stroke</option>
+              <option value="Cancer">Cancer</option>
+              <option value="Chronic Kidney Disease">
+                Chronic Kidney Disease
+              </option>
+              <option value="Alzheimer's Disease and Other Dementias">
+                Alzheimer's Disease and Other Dementias
+              </option>
+              <option value="Infertility (Male or Female)">
+                Infertility (Male or Female)
+              </option>
+              <option value="Polycystic Ovary Syndrome (PCOS)">
+                Polycystic Ovary Syndrome (PCOS)
+              </option>
+              <option value="Endometriosis">Endometriosis</option>
+              <option value="Sexually Transmitted Infections (STIs)">
+                Sexually Transmitted Infections (STIs)
+              </option>
+              <option value="Erectile Dysfunction">Erectile Dysfunction</option>
+              <option value="Premenstrual Syndrome (PMS)">
+                Premenstrual Syndrome (PMS)
+              </option>
+              <option value="Menopause and Perimenopause Issues">
+                Menopause and Perimenopause Issues
+              </option>
+              <option value="Others">Others</option>
+            </select>
+            <label for="location">Patient Location</label>
+            <span
+              class="helper-text"
+              data-error="Health condition is required"
+              data-success="Valid"
+            ></span>
+          </div>
+
+          <div class="input-field col s12 m6">
+            <i class="material-icons prefix">date_range</i>
+            <input
+              type="text"
+              id="appointmentDate"
+              class="datepicker"
+              required
+            />
+            <label for="appointmentDate">Appointment Date</label>
+            <span
+              class="helper-text"
+              data-error="Please choose a date"
+              data-success="Valid"
+            ></span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12 m6">
+            <i class="material-icons prefix">access_time</i>
+            <input
+              type="text"
+              id="appointmentTime"
+              class="timepicker"
+              required
+            />
+            <label for="appointmentTime">Appointment Time</label>
+            <span
+              class="helper-text"
+              data-error="Please choose a time"
+              data-success="Valid"
+            ></span>
+          </div>
+          <div class="input-field col s12">
+            <i class="material-icons prefix">message</i>
+            <textarea
+              id="yourMessage"
+              class="materialize-textarea"
+              required
+            ></textarea>
+            <label for="yourMessage">Additional Information</label>
+            <span
+              class="helper-text"
+              data-error="Message is required"
+              data-success="Valid"
+            ></span>
+          </div>
+        </div>
+        <div class="row">
+          <button
+            class="btn waves-effect waves-light blue darken-3"
+            type="submit"
+            name="action"
+          >
+            Submit
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("select").formSelect();
+        $(".datepicker").datepicker();
+        $(".timepicker").timepicker();
+
+        $("#bookingForm").submit(function (event) {
+          event.preventDefault();
+
+          // Validate all fields manually in case some browsers don't catch the HTML5 validation
+          if ($("#bookingForm")[0].checkValidity()) {
+            let formData = {
+              fullName: $("#fullName").val(),
+              ageRange: $("#ageRange").val(),
+              gender: $("#gender").val(),
+              phoneContact: $("#phoneContact").val(),
+              email: $("#email").val(),
+              location: $("#location").val(),
+              healthCondition: $("#healthCondition").val(),
+              appointmentDate: $("#appointmentDate").val(),
+              appointmentTime: $("#appointmentTime").val(),
+              yourMessage: $("#yourMessage").val(),
+            };
+
+            // Replace with your Google Apps Script web app URL
+            const webAppUrl =
+              "https://script.google.com/macros/s/AKfycbxefeK7yCIQWlhdNYJfSkaYRNMz8ps1Kwu1He9FmWK0nS39XG7UshTb-spHxvGEdno/exec";
+
+            // Send form data to Google Apps Script
+            fetch(webAppUrl, {
+              method: "POST",
+              body: JSON.stringify(formData),
+              headers: {
+                "Content-Type": "application/json",
+              },
+            })
+              .then((response) => {
+                if (!response.ok) {
+                  throw new Error("Network response was not ok");
+                }
+                return response.json();
+              })
+              .then((data) => {
+                if (data.success) {
+                  M.toast({
+                    html: "Booking successful!",
+                    classes: "green darken-2",
+                  });
+                  $("#bookingForm")[0].reset();
+                } else {
+                  M.toast({
+                    html: "Appointment slot not available!",
+                    classes: "red darken-4",
+                  });
+                }
+              })
+              .catch((error) => {
+                console.error("Error:", error);
+                M.toast({
+                  html: "An error occurred!",
+                  classes: "red darken-4",
+                });
+              });
+          } else {
+            M.toast({
+              html: "Please fill all required fields!",
+              classes: "red darken-4",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Import Materialize CSS and Icons -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #f4f4f4;
+        padding: 10px;
+      }
+
+      .btn {
+        background-color: #ff416c;
+        border: none;
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .btn:hover {
+        background-color: #ee30a5;
+      }
+
+      .field-icon {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+      }
+
+      .centered-button p {
+        display: inline-block;
+        margin-right: 20px;
+      }
+
+      .hide {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Login Form -->
+    <div id="login-form" class="container">
+      <div class="row">
+        <h4>Login Form</h4>
+        <div class="input-field col s12 m6">
+          <i class="material-icons prefix">account_circle</i>
+          <input type="text" id="login-name" required />
+          <label for="login-name">Name</label>
+        </div>
+
+        <div class="input-field col s12 m6">
+          <i class="material-icons prefix">lock</i>
+          <input type="password" id="login-password" required />
+          <label for="login-password">Password</label>
+          <span toggle="#login-password" class="field-icon toggle-password"
+            >Show</span
+          >
+        </div>
+
+        <div class="centered-button col s12">
+          <button
+            class="btn waves-effect waves-light"
+            type="submit"
+            form="login-form"
+          >
+            Login <i class="material-icons right">send</i>
+          </button>
+        </div>
+        <div id="login-error"></div>
+
+        <div class="centered-button col s12">
+          <p><a href="#" onclick="showRecovery()">Recover Account</a> |</p>
+          <p><a href="#" onclick="showSignup()">Create New</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Signup Form -->
+    <div id="signup-form" class="container hide">
+      <div class="row">
+        <h4>Create Account</h4>
+        <div class="input-field col s12 m6">
+          <i class="material-icons prefix">account_circle</i>
+          <input type="text" id="signup-name" required />
+          <label for="signup-name">Name</label>
+        </div>
+
+        <div class="input-field col s12 m6">
+          <i class="material-icons prefix">lock</i>
+          <input type="password" id="signup-password" required />
+          <label for="signup-password">Password</label>
+          <span toggle="#signup-password" class="field-icon toggle-password"
+            >Show</span
+          >
+        </div>
+
+        <div class="input-field col s12 m6">
+          <i class="material-icons prefix">email</i>
+          <input type="email" id="signup-email" required />
+          <label for="signup-email">Email</label>
+        </div>
+
+        <div class="input-field col s12 m6">
+          <i class="material-icons prefix">phone</i>
+          <input type="tel" id="signup-phone" required />
+          <label for="signup-phone">Phone Number</label>
+        </div>
+
+        <div class="centered-button col s12">
+          <button
+            class="btn waves-effect waves-light"
+            type="submit"
+            form="signup-form"
+          >
+            Create Account <i class="material-icons right">send</i>
+          </button>
+        </div>
+        <div id="signup-error"></div>
+
+        <div class="centered-button col s12">
+          <p><a href="#" onclick="showLogin()">Login</a> |</p>
+          <p><a href="#" onclick="showRecovery()">Recover Account</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Account Recovery Form -->
+    <div id="recovery-form" class="container hide">
+      <div class="row">
+        <h4>Recover Account</h4>
+        <div class="input-field col s12 m6">
+          <i class="material-icons prefix">email</i>
+          <input type="email" id="recovery-email" required />
+          <label for="recovery-email">Email</label>
+        </div>
+
+        <div class="centered-button col s12">
+          <button
+            class="btn waves-effect waves-light"
+            type="submit"
+            form="recovery-form"
+          >
+            Send OTP <i class="material-icons right">send</i>
+          </button>
+        </div>
+        <div id="recovery-error"></div>
+        <div class="centered-button col s12">
+          <p><a href="#" onclick="showLogin()">Login</a> |</p>
+          <p><a href="#" onclick="showSignup()">Create New</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Importing Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script>
+      // Function to toggle between forms
+      function showLogin() {
+        document.getElementById("signup-form").classList.add("hide");
+        document.getElementById("recovery-form").classList.add("hide");
+        document.getElementById("login-form").classList.remove("hide");
+      }
+
+      function showSignup() {
+        document.getElementById("login-form").classList.add("hide");
+        document.getElementById("recovery-form").classList.add("hide");
+        document.getElementById("signup-form").classList.remove("hide");
+      }
+
+      function showRecovery() {
+        document.getElementById("login-form").classList.add("hide");
+        document.getElementById("signup-form").classList.add("hide");
+        document.getElementById("recovery-form").classList.remove("hide");
+      }
+
+      // Toggle password visibility function
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".toggle-password").forEach((item) => {
+          item.addEventListener("click", function () {
+            let input = document.querySelector(this.getAttribute("toggle"));
+            if (input.type === "password") {
+              input.type = "text";
+              this.textContent = "Hide"; // Update text to "Hide"
+            } else {
+              input.type = "password";
+              this.textContent = "Show"; // Revert text to "Show"
+            }
+          });
+        });
+      });
+
+      // Handling Login Form Submission
+      document
+        .getElementById("login-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          var name = document.getElementById("login-name").value;
+          var password = document.getElementById("login-password").value;
+
+          var formData = {
+            action: "loginUser",
+            name: name,
+            password: password,
+          };
+
+          fetch(
+            "https://script.google.com/macros/s/AKfycbyBR0pe88_wP5wn_LLXVBfOxf5egSXDErVzEbPxoQ3VBJqEDULq2bVkrTVxb2rqf7k/exec",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(formData),
+            }
+          )
+            .then((response) => response.json())
+            .then((response) => {
+              if (response.status === "success") {
+                M.toast({
+                  html: "Login successful",
+                  classes: "green darken-2",
+                });
+                window.location.href = "dashboard.html"; // redirect on successful login
+              } else {
+                M.toast({
+                  html: "Invalid username or password",
+                  classes: "red darken-4",
+                });
+              }
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+              M.toast({ html: "Error during login", classes: "red darken-4" });
+            });
+        });
+
+      // Handling Signup Form Submission
+      document
+        .getElementById("signup-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          var name = document.getElementById("signup-name").value;
+          var email = document.getElementById("signup-email").value;
+          var password = document.getElementById("signup-password").value;
+          var phone = document.getElementById("signup-phone").value;
+
+          var formData = {
+            action: "signupUser",
+            name: name,
+            email: email,
+            password: password,
+            phone: phone,
+          };
+
+          fetch(
+            "https://script.google.com/macros/s/AKfycbyBR0pe88_wP5wn_LLXVBfOxf5egSXDErVzEbPxoQ3VBJqEDULq2bVkrTVxb2rqf7k/exec",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(formData),
+            }
+          )
+            .then((response) => response.json())
+            .then((response) => {
+              if (response.status === "success") {
+                M.toast({
+                  html: "Signup successful",
+                  classes: "green darken-2",
+                });
+                showLogin(); // Show login form after successful signup
+              } else {
+                M.toast({
+                  html: "Signup failed: " + response.message,
+                  classes: "red darken-4",
+                });
+              }
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+              M.toast({ html: "Error during signup", classes: "red darken-4" });
+            });
+        });
+
+      // Handling Recovery Form Submission
+      document
+        .getElementById("recovery-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          var email = document.getElementById("recovery-email").value;
+
+          var formData = {
+            action: "recoverAccount",
+            email: email,
+          };
+
+          fetch(
+            "https://script.google.com/macros/s/AKfycbyBR0pe88_wP5wn_LLXVBfOxf5egSXDErVzEbPxoQ3VBJqEDULq2bVkrTVxb2rqf7k/exec",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(formData),
+            }
+          )
+            .then((response) => response.json())
+            .then((response) => {
+              if (response.status === "success") {
+                M.toast({
+                  html: "Recovery email sent",
+                  classes: "green darken-2",
+                });
+                showLogin(); // Show login form after recovery email sent
+              } else {
+                M.toast({
+                  html: "Recovery failed: " + response.message,
+                  classes: "red darken-4",
+                });
+              }
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+              M.toast({
+                html: "Error during account recovery",
+                classes: "red darken-4",
+              });
+            });
+        });
+    </script>
+  </body>
+</html>

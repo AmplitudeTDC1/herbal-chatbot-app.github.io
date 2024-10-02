@@ -3,61 +3,210 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chatbot Integration</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Chatbot Therapy</title>
+
     <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <!-- Google Fonts for chatbot icons -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
-    />
+
+    <!-- Style for the UI -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(45deg, #e96443, #904e95);
+        color: #fff;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        transition: all 0.3s ease;
+      }
+
+      .container {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        padding: 30px;
+        max-width: 1200px;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .text-content {
+        flex: 1;
+        padding-right: 30px;
+      }
+
+      h2 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        text-align: left;
+      }
+
+      p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        text-align: left;
+      }
+
+      .btn-container {
+        display: flex;
+        align-items: center;
+        gap: 15px; /* Space between buttons */
+        margin-top: 20px;
+      }
+
+      .btn {
+        background: linear-gradient(45deg, #e2755a, #dd816a);
+        padding: 15px 30px;
+        color: #fff;
+        font-weight: bold;
+        font-size: 1.1rem;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+        text-transform: uppercase;
+        border: none;
+      }
+
+      .btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      /* WhatsApp Button */
+      .whatsapp-btn {
+        background: linear-gradient(45deg, #dd816a, #e2755a);
+        padding: 15px 20px;
+        border-radius: 50px;
+        text-decoration: none; /* Remove underline from link */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .whatsapp-btn img {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+      }
+
+      .whatsapp-btn span {
+        color: #fff;
+        font-weight: bold;
+        font-size: 1.1rem;
+      }
+
+      .whatsapp-btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Chatbot image styles */
+      .image-content {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .image-content img {
+        max-width: 500px;
+        height: auto;
+        border-radius: 10px;
+      }
+
+      /* Responsive design */
+      @media only screen and (max-width: 768px) {
+        .container {
+          flex-direction: column;
+          padding: 30px;
+        }
+
+        .text-content {
+          padding-right: 0;
+          margin-bottom: 30px;
+        }
+
+        h2 {
+          font-size: 2rem;
+        }
+
+        p {
+          font-size: 1rem;
+        }
+
+        .btn {
+          padding: 10px 20px;
+          font-size: 1rem;
+        }
+
+        .image-content img {
+          max-width: 100%;
+        }
+      }
+    </style>
   </head>
-
   <body>
-    <!-- Therapy information section -->
     <div class="container">
+      <!-- Left Side: Text content -->
       <div class="text-content">
-        <h1>
-          Get answers to all your health questions and corresponding alternative
-          healing methods
-        </h1>
+        <h2>Get answers to all your alternative therapy questions</h2>
         <p>
-          Curious about alternative healing methods? Learn how they work and get
-          expert answers to your questions. Connect with our chatbot for advice,
-          information, and guidance in alternative therapy solutions.
+          Welcome to the BushDoktor Health Chatbot! This free, on-demand tool
+          provides reliable information about herbal treatments, therapies, and
+          holistic wellness. Whether you're seeking natural remedies or just
+          want to learn more about alternative health options, our chatbot
+          offers instant, credible advice to guide you on your wellness journey.
         </p>
-        <!-- <button class="btn">Get Started</button> -->
+        <div class="btn-container">
+          <button
+            class="btn"
+            onclick="window.open('https://sites.google.com/view/bushdoktor/loginsign-up', '_blank');"
+          >
+            Get Started
+          </button>
+
+          <!-- WhatsApp Button -->
+          <a
+            href="https://wa.me/2349139630012"
+            target="_blank"
+            class="whatsapp-btn"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+              alt="WhatsApp Icon"
+            />
+            <span>Live chat</span>
+          </a>
+        </div>
       </div>
+
+      <!-- Right Side: Image content -->
       <div class="image-content">
-        <img src="./img/chatBot_2-removebg-preview.png" alt="Chatbot Image" />
+        <img
+          src="https://github.com/AmplitudeTDC1/herbal-chatbot-app.github.io/raw/main/img/chatBot2.png"
+          alt="Chatbot Image"
+        />
       </div>
     </div>
-
-    <!-- Chatbot Toggler -->
-    <div class="chatbot-toggler">
-      <span class="material-symbols-outlined">chat</span>
-      <span class="material-symbols-outlined">close</span>
-    </div>
-
-    <!-- Chatbot box -->
-    <div class="chatbot">
-      <header>
-        <h1 id="greeting">Hello there!</h1>
-        <span class="material-symbols-outlined">close</span>
-      </header>
-
-      <ul class="chatbox">
-        <!-- Categories and questions will be dynamically added here -->
-      </ul>
-
-      <div class="chat-input back-button">
-        <button onclick="displayCategories()">Back to Categories</button>
-      </div>
-    </div>
-    <script src="./script.js"></script>
   </body>
 </html>
