@@ -38,7 +38,7 @@ body {
   padding-right: 20px;
 }
 
-h1 {
+h2 {
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 20px;
@@ -51,6 +51,77 @@ p {
   text-align: left;
 }
 
+.btn-container {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Space between buttons */
+  margin-top: 20px;
+}
+
+.btn {
+  background: linear-gradient(45deg, #e2755a, #dd816a);
+  padding: 15px 30px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  border: none;
+}
+
+.btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.2);
+}
+/* WhatsApp Button */
+.whatsapp-btn {
+  background: linear-gradient(45deg, #dd816a, #e2755a);
+  padding: 15px 20px;
+  border-radius: 50px;
+  text-decoration: none; /* Remove underline from link */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.whatsapp-btn img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.whatsapp-btn span {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.whatsapp-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Chatbot image styles */
+.image-content {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.image-content img {
+  max-width: 500px;
+  height: auto;
+  border-radius: 10px;
+}
 /* Add CSS for highlighted subcategories */
 .highlight {
   font-size: 1.5rem;
@@ -86,12 +157,12 @@ p {
   border: none;
   padding: 15px 30px;
   font-size: 1.2rem;
-  border-radius: 5px;
+  border-radius: 30px;
   color: #fff;
   cursor: pointer;
   transition: all 0.3s ease;
   text-transform: uppercase;
-  margin-top: 20px;
+  margin-top: 5px;
   display: block;
   text-align: left;
 }
@@ -178,7 +249,7 @@ p {
     margin-bottom: 30px;
   }
 
-  h1 {
+  h2 {
     font-size: 2rem;
   }
 
